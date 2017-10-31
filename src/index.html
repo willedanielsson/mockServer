@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>My app</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+
+<body>
+<p>Look in the console</p>
+</body>
+<script>
+    $.get("/api/web/customer/1234567", (data) => {
+        console.log("GET customer:", data);
+    });
+
+    $.get("/api/web/issues?customerId=1234567", (data) => {
+        console.log("GET issues:", data);
+    });
+
+    $.ajax({
+        url: "/api/web/wallet",
+        method: 'PUT',
+        data: { test: "Yeah" },
+        success: (response) => {
+            console.log("PUT wallet: ", response)
+        }
+    });
+
+    $.ajax({
+        url: "/api/web/customer",
+        method: 'POST',
+        data: { test: "POST", name: "Will" },
+        success: (response) => {
+            console.log("POST customer: ", response)
+        }
+    });
+
+</script>
+</html>
