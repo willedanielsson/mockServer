@@ -74,7 +74,7 @@ app.post('*', (req, res) => {
 function getMeSomeJSON(fileName, res, status) {
     try {
         const fullFilepath = __dirname + '/data/' + fileName;
-        fs.readFile(fullFilepath, function(err, filecontent) {
+        fs.readFile(fullFilepath, (err, filecontent) => {
             if (err) {
                 if (err.code === 'ENOENT') {
                     const questionMarkIndex = fileName.indexOf('?');
@@ -105,7 +105,7 @@ function getMeSomeJSON(fileName, res, status) {
 function getMeFile(fileName, res) {
     try {
         const fullFilepath = __dirname + '/data/' + fileName;
-        fs.readFile(fullFilepath, function(err, filecontent) {
+        fs.readFile(fullFilepath, (err, filecontent) => {
             if (err) {
                 res.status(500);
                 res.send(null);
