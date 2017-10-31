@@ -7,10 +7,10 @@ const app = express();
 
 const PATH_TO_APP = 'src';
 
-app.listen(port, function() {
+app.listen(port, () => {
     console.log(chalk.blue(`mockServer is now started`));
     console.log(chalk.blue(`Lets navigate to localhost:${port}`));
-}).on('error', function(e) {
+}).on('error', (e) => {
     if (e.code === "EADDRINUSE") {
         console.log(chalk.grey.bgRed('ERROR: Porten används redan'));
         console.log(chalk.grey.bgRed('Du kanske har en annan process på porten: ' + port));
